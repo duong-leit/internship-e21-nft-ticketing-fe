@@ -1,3 +1,26 @@
+### Instalation
+
+```ssh
+npm install
+# or
+yarn install
+```
+
+
+### Getting Started
+
+```ssh
+npm run dev
+# or
+yarn dev
+```
+
+Open http://localhost:3000 with your browser to see the result.
+
+
+
+### Code Structure
+
 ```
 ├── README.md
 ├── api-client
