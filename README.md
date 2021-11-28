@@ -9,11 +9,11 @@
 │   │   ├── auth.tsx
 │   │   ├── header.tsx
 │   │   └── index.ts
-│   ├── layout
-│   │   ├── admin.tsx
-│   │   ├── empty.tsx
-│   │   ├── main.tsx
-│   │   └── index.ts
+│   └── layout
+│       ├── admin.tsx
+│       ├── empty.tsx
+│       ├── main.tsx
+│       └── index.ts
 ├── models
 │   ├── auth.ts
 │   ├── common.ts
