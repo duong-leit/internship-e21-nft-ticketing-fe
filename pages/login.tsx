@@ -1,16 +1,14 @@
+
 import { DatePicker, Space } from 'antd';
 import { NextPageWithLayout } from '@/models/common.interface';
-import { MainLayout } from '@/components/layout';
-
 
 function onChange(date: any, dateString: any) {
   console.log(date, dateString);
 }
 
-const Home: NextPageWithLayout = () => {
-  
+const Login: NextPageWithLayout = () => {
   return (
-    <div className={'HomeContainer'}>
+    <div className={'LoginContainer'}>
       <Space direction="vertical">
         <DatePicker onChange={onChange} />
       </Space>
@@ -18,6 +16,4 @@ const Home: NextPageWithLayout = () => {
   )
 }
 
-Home.Layout = MainLayout;
-
-export default Home
+export default Login

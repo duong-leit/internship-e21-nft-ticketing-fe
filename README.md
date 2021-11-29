@@ -34,50 +34,44 @@ Open http://localhost:3000 with your browser to see the result.
 │   └── index.ts
 ├── components
 │   ├── common
-│   │   ├── auth.tsx
-│   │   ├── header.tsx
-│   │   └── index.ts
+│   │   └── Header
+│   │       ├── Header.tsx
+│   │       └── index.ts
 │   └── layout
-│       ├── admin.tsx
-│       ├── empty.tsx
-│       ├── main.tsx
-│       └── index.ts
+│       ├── Empty.tsx
+│       ├── Main.tsx
+│       └── index.ts
+├── environments
 ├── models
-│   ├── auth.ts
-│   ├── common.ts
-│   └── index.ts
-├── pages
-│   ├── _app.tsx
-│   │
-│   ├── api
-│   │   ├── login.ts
-│   │   └── [...path].ts
-│   │
-│   ├── index.tsx
-│   ├── login.tsx
-│   └── event
-│       ├── [eventId].tsx
-│       ├── create.tsx
-│       ├── index.tsx
-│       └── params.tsx
-│
-├── public
-│   ├── favicon.ico
-│   └── vercel.svg
-│
-├── styles
-│   ├── Home.module.scss
-│   └── globals.scss
-│
-├── utils
-│   ├── create-emotion-cache.ts
+│   ├── auth.interface.ts
+│   ├── common.interface.ts
 │   ├── index.ts
-│   └── theme.ts
-│
-├── tsconfig.json
+│   └── user.interface.ts
 ├── next-env.d.ts
 ├── next.config.js
 ├── package.json
+├── pages
+│   ├── _app.tsx
+│   ├── admin.tsx
+│   ├── event
+│   │   ├── [eventId].tsx
+│   │   └── index.tsx
+│   ├── index.tsx
+│   ├── login.tsx
+│   ├── register.tsx
+│   └── user
+│       ├── [userId].tsx
+│       └── index.tsx
+├── public
+│   ├── favicon.ico
+│   └── vercel.svg
+├── styles
+│   ├── Home
+│   │   └── styles.scss
+│   ├── Home.module.css
+│   ├── globals.scss
+│   └── layout
+│       └── main.scss
+├── tsconfig.json
 └── yarn.lock
-
 ```
