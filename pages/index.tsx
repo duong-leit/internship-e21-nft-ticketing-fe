@@ -8,7 +8,8 @@ function onChange(date: any, dateString: any) {
 }
 
 const Home: NextPageWithLayout = () => {
-  
+  const a = 10;
+  console.log(a);
   return (
     <div className={'HomeContainer'}>
       <Space direction="vertical">

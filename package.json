@@ -7,6 +7,11 @@
     "start": "cross-env NODE_ENV=development next start",
     "lint": "next lint"
   },
+  "eslintConfig": {
+    "rules": {
+      "no-var": 0
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.7.0",
     "antd": "^4.17.2",
@@ -19,9 +24,12 @@
   "devDependencies": {
     "@types/node": "16.11.10",
     "@types/react": "17.0.37",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
     "cross-env": "^7.0.3",
-    "eslint": "7",
+    "eslint": "^7.32.0",
     "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
     "typescript": "4.5.2"
   }
 }

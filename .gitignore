@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+.idea
+
 environments/.env.development
 environments/.env.production
 

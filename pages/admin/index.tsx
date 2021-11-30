@@ -1,3 +1,4 @@
+
 import { DatePicker, Space } from 'antd';
 import { NextPageWithLayout } from '@/models/common.interface';
 
@@ -5,7 +6,7 @@ function onChange(date: any, dateString: any) {
   console.log(date, dateString);
 }
 
-const User: NextPageWithLayout = () => {
+const Admin: NextPageWithLayout = () => {
   return (
     <div className={'LoginContainer'}>
       <Space direction="vertical">
@@ -15,4 +16,4 @@ const User: NextPageWithLayout = () => {
   )
 }
 
-export default User
+export default Admin

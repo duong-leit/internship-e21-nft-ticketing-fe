@@ -31,33 +31,32 @@ Open http://localhost:3000 with your browser to see the result.
 ├── api-client
 │   ├── auth-api.ts
 │   ├── axios-client.ts
-│   └── index.ts
+│   └── index.tsz
 ├── components
 │   ├── common
 │   │   └── Header
-│   │       ├── Header.tsx
-│   │       └── index.ts
+│   │       └── index.tsx
 │   └── layout
 │       ├── Empty.tsx
 │       ├── Main.tsx
-│       └── index.ts
+│       └── index.tsz
 ├── environments
 ├── models
 │   ├── auth.interface.ts
 │   ├── common.interface.ts
-│   ├── index.ts
+│   ├── index.tsz
 │   └── user.interface.ts
 ├── next-env.d.ts
 ├── next.config.js
 ├── package.json
 ├── pages
 │   ├── _app.tsx
-│   ├── admin.tsx
+│   ├── index.tsx
 │   ├── event
 │   │   ├── [eventId].tsx
 │   │   └── index.tsx
 │   ├── index.tsx
-│   ├── login.tsx
+│   ├── index.tsx
 │   ├── register.tsx
 │   └── user
 │       ├── [userId].tsx

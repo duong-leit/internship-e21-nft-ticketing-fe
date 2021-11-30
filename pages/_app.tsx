@@ -4,8 +4,6 @@ import { AppPropsWithLayout } from '../models';
 import { EmptyLayout } from '@/components/layout';
 import React from 'react';
 
-
-React.useLayoutEffect = React.useEffect;
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout
 
