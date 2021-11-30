@@ -1,11 +1,11 @@
 import 'antd/dist/antd.css';
-import '@/styles/globals.scss'
+import '@/styles/globals.scss';
 import { AppPropsWithLayout } from '../models';
 import { EmptyLayout } from '@/components/layout';
 import React from 'react';
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const Layout = Component.Layout ?? EmptyLayout
+  const Layout = Component.Layout ?? EmptyLayout;
 
   const [showChild, setShowChild] = React.useState(false);
 
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <Layout>
       <Component {...pageProps} />
     </Layout>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

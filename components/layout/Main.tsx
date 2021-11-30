@@ -3,7 +3,6 @@ import React, { useLayoutEffect } from 'react';
 import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-
 const { Header, Content, Sider } = Layout;
 
 export function MainLayout({ children }: LayoutProps) {
@@ -23,19 +22,19 @@ export function MainLayout({ children }: LayoutProps) {
           left: 0,
         }}
       >
-        <div className='logo' />
-        <Menu theme='dark' mode='inline' defaultSelectedKeys={['4']}>
-          <Menu.Item key='1' icon={<UserOutlined />}>
+        <div className="logo" />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+          <Menu.Item key="1" icon={<UserOutlined />}>
             nav 1
           </Menu.Item>
         </Menu>
       </Sider>
-      <Layout className='site-layout' style={{ marginLeft: 200 }}>
-        <Header className='site-layout-background' style={{ padding: 0, textAlign: 'center' }}>
+      <Layout className="site-layout" style={{ marginLeft: 200 }}>
+        <Header className="site-layout-background" style={{ padding: 0, textAlign: 'center' }}>
           Header
         </Header>
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-          <div className='site-layout-background' style={{ padding: 24, textAlign: 'center' }}>
+          <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
             {children}
           </div>
         </Content>
@@ -44,4 +43,3 @@ export function MainLayout({ children }: LayoutProps) {
     </Layout>
   );
 }
-

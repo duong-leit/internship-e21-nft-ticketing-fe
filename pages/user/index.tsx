@@ -12,7 +12,7 @@ const User: NextPageWithLayout = () => {
         <DatePicker onChange={onChange} />
       </Space>
     </div>
-  )
-}
+  );
+};
 
-export default User
+export default User;

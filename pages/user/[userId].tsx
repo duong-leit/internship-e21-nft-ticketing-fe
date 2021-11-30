@@ -12,7 +12,7 @@ const UserDetail: NextPageWithLayout = () => {
         <DatePicker onChange={onChange} />
       </Space>
     </div>
-  )
-}
+  );
+};
 
 export default UserDetail;

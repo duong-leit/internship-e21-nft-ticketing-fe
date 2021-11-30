@@ -1,4 +1,3 @@
-
 import { DatePicker, Space } from 'antd';
 import { NextPageWithLayout } from '@/models/common.interface';
 
@@ -13,7 +12,7 @@ const Login: NextPageWithLayout = () => {
         <DatePicker onChange={onChange} />
       </Space>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

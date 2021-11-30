@@ -12,7 +12,7 @@ const Event: NextPageWithLayout = () => {
         <DatePicker onChange={onChange} />
       </Space>
     </div>
-  )
-}
+  );
+};
 
-export default Event
+export default Event;

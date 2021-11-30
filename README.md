@@ -1,7 +1,6 @@
-
 # Final Project: Nextjs App (Front End)
 
-<hr /> 
+<hr />
 
 ### Instalation
 
@@ -10,7 +9,6 @@ npm install
 # or
 yarn install
 ```
-
 
 ### Getting Started
 
@@ -21,8 +19,6 @@ yarn dev
 ```
 
 Open http://localhost:3000 with your browser to see the result.
-
-
 
 ### Code Structure
 
