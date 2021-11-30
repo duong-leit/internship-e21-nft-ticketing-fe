@@ -5,7 +5,7 @@ function onChange(date: any, dateString: any) {
   console.log(date, dateString);
 }
 
-const UserDetail: NextPageWithLayout = () => {
+const Login: NextPageWithLayout = () => {
   return (
     <div className={'LoginContainer'}>
       <Space direction="vertical">
@@ -15,4 +15,4 @@ const UserDetail: NextPageWithLayout = () => {
   );
 };
 
-export default UserDetail;
+export default Login;
