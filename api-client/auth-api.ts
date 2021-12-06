@@ -1,16 +1,16 @@
 import axiosClient from './axios-client';
-import { LoginPayload } from '@/models/auth.interface';
+import { ILoginFacebookPayLoad, ILoginPayload } from '@/models/auth.interface';
 
 export const authApi = {
-  login(payload: LoginPayload) {
-    return axiosClient.post('/login', payload);
+  systemLogin(payload: ILoginPayload) {
+    return axiosClient.post('auth/system-login', payload);
+  },
+
+  facebookLogin(payload: ILoginFacebookPayLoad) {
+    return axiosClient.post('auth/fb-login', payload);
   },
 
   logout() {
-    return axiosClient.post('/logout');
-  },
-
-  getProfile() {
-    return axiosClient.get('/profile');
+    return axiosClient.post('logout');
   },
 };

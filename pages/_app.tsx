@@ -3,6 +3,8 @@ import '@/styles/globals.scss';
 import { AppPropsWithLayout } from '../models';
 import { EmptyLayout } from '@/components/layout';
 import React from 'react';
+import { store } from '../app-client/store';
+import { Provider } from 'react-redux';
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout;
@@ -20,9 +22,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   }
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 }
 
