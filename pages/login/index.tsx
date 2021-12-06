@@ -8,6 +8,10 @@ import CustomInput from '@/components/common/CustomInput';
 import { KeyOutlined, UserOutlined } from '@ant-design/icons';
 import { authApi } from '@/api/auth-api';
 import { useRouter } from 'next/router';
+import FacebookLogin from 'react-facebook-login';
+import React from 'react';
+import { useAppDispatch } from '../../app-client/hooks';
+import { login } from '../../app-client/slices/userSlice';
 
 const { Title, Text } = Typography;
 
@@ -33,6 +37,7 @@ const Login: NextPageWithLayout = () => {
     reset,
   } = useForm<ILoginPayload>({ resolver: yupResolver(schema) });
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const openNotificationWithIcon = (type: string, message: string) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -41,17 +46,39 @@ const Login: NextPageWithLayout = () => {
       message: message,
     });
   };
+  const responseFacebook = (response: any) => {
+    authApi.facebookLogin({
+      accessToken: response.accessToken,
+      avatarUrl: response.picture.data.url
+    }).then(res=>{
+      dispatch(login({
+        name: res.data?.name,
+        email: res.data?.email,
+        avatarUrl: res.data?.avatar
+      }))
+      openNotificationWithIcon('success', 'Login successful');
+      router.push('/');
+    }).catch(error=>{
+      console.log(error)
+    })
+  }
 
   const onSubmit = (data: ILoginPayload) => {
     console.log(data);
     authApi
-      .login(data)
+      .systemLogin(data)
       .then((res) => {
         console.log(res);
+        dispatch(login({
+          name: res.data?.name,
+          email: res.data?.email,
+          avatarUrl: res.data?.avatar
+        }))
+        openNotificationWithIcon('success', 'Login successful');
         router.push('/');
       })
       .catch((req) => {
-        const message = req.response.data.message;
+        const message = req.response?.data.message;
         openNotificationWithIcon('error', message);
       });
   };
@@ -103,6 +130,13 @@ const Login: NextPageWithLayout = () => {
               <Button htmlType="button" onClick={handleReset}>
                 Reset
               </Button>
+            </Form.Item>
+            <Form.Item>
+              <FacebookLogin
+                appId="1265774213936701"
+                autoLoad={false}
+                fields="name,email,picture"
+                callback={responseFacebook} />
             </Form.Item>
           </Form>
         </Col>

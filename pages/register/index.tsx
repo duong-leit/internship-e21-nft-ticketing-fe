@@ -53,9 +53,10 @@ const Register: NextPageWithLayout = () => {
         console.log(res);
         openNotificationWithIcon('success', 'Create user successful');
       })
-      .catch((req) => {
-        const message = req.response.data;
+      .catch((error) => {
+        const message = error.response.data.message;
         console.log(message);
+        openNotificationWithIcon('error', message);
       });
   };
   const handleReset = () => {
