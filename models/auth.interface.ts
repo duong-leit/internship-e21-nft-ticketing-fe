@@ -3,7 +3,7 @@ export interface ILoginPayload {
   password: string;
 }
 
-export interface ILoginFacebookPayLoad{
-  accessToken: string,
-  avatarUrl: string
+export interface ILoginFacebookPayLoad {
+  accessToken: string;
+  avatarUrl: string;
 }
