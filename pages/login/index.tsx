@@ -47,21 +47,26 @@ const Login: NextPageWithLayout = () => {
     });
   };
   const responseFacebook = (response: any) => {
-    authApi.facebookLogin({
-      accessToken: response.accessToken,
-      avatarUrl: response.picture.data.url
-    }).then(res=>{
-      dispatch(login({
-        name: res.data?.name,
-        email: res.data?.email,
-        avatarUrl: res.data?.avatar
-      }))
-      openNotificationWithIcon('success', 'Login successful');
-      router.push('/');
-    }).catch(error=>{
-      console.log(error)
-    })
-  }
+    authApi
+      .facebookLogin({
+        accessToken: response.accessToken,
+        avatarUrl: response.picture.data.url,
+      })
+      .then((res) => {
+        dispatch(
+          login({
+            name: res.data?.name,
+            email: res.data?.email,
+            avatarUrl: res.data?.avatar,
+          })
+        );
+        openNotificationWithIcon('success', 'Login successful');
+        router.push('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const onSubmit = (data: ILoginPayload) => {
     console.log(data);
@@ -69,11 +74,13 @@ const Login: NextPageWithLayout = () => {
       .systemLogin(data)
       .then((res) => {
         console.log(res);
-        dispatch(login({
-          name: res.data?.name,
-          email: res.data?.email,
-          avatarUrl: res.data?.avatar
-        }))
+        dispatch(
+          login({
+            name: res.data?.name,
+            email: res.data?.email,
+            avatarUrl: res.data?.avatar,
+          })
+        );
         openNotificationWithIcon('success', 'Login successful');
         router.push('/');
       })
@@ -136,7 +143,8 @@ const Login: NextPageWithLayout = () => {
                 appId="1265774213936701"
                 autoLoad={false}
                 fields="name,email,picture"
-                callback={responseFacebook} />
+                callback={responseFacebook}
+              />
             </Form.Item>
           </Form>
         </Col>

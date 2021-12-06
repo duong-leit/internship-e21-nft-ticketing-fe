@@ -6,7 +6,6 @@ import React from 'react';
 import { store } from '../app-client/store';
 import { Provider } from 'react-redux';
 
-
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout;
 
