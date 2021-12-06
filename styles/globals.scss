@@ -1,8 +1,10 @@
 //Layout
 @import './layout/main';
+@import './layout/empty';
 
 //Component
 @import 'components/Home/styles';
+@import 'components/Login/styles';
 
 * {
   padding: 0;

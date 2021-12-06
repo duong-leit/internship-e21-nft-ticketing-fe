@@ -1,0 +1,16 @@
+.LoginContainer {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .ant-row {
+    width: 100%;
+    height: fit-content;
+  }
+  &__form {
+    padding: 30px 40px;
+    text-align: center;
+    border: 1px solid black;
+  }
+}

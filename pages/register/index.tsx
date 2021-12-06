@@ -3,11 +3,10 @@ import { Button, Col, Form, notification, Row, Space, Typography } from 'antd';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import * as yup from 'yup';
-import { ILoginPayload } from '@/models/auth.interface';
 import CustomInput from '@/components/common/CustomInput';
-import { KeyOutlined, UserOutlined } from '@ant-design/icons';
-import { authApi } from '@/api/auth-api';
-import { useRouter } from 'next/router';
+import { KeyOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
+import { IUserPayload } from '@/models/user.interface';
+import { userApi } from '@/api/user-api';
 
 const { Title, Text } = Typography;
 
@@ -20,19 +19,23 @@ const tailLayout = {
 
 const schema = yup
   .object({
-    username: yup.string().required('Username is required'),
-    password: yup.string().required('Password is required'),
+    email: yup.string().email('Must be a valid email').max(320).required('Username is required'),
+    name: yup.string().max(200).required('Username is required'),
+    password: yup.string().max(200).required('Password is required'),
+    passwordConfirmation: yup
+      .string()
+      .max(200)
+      .oneOf([yup.ref('password'), null], 'Passwords must match'),
   })
   .required();
 
-const Login: NextPageWithLayout = () => {
+const Register: NextPageWithLayout = () => {
   const {
     handleSubmit,
     control,
     formState: { errors },
     reset,
-  } = useForm<ILoginPayload>({ resolver: yupResolver(schema) });
-  const router = useRouter();
+  } = useForm<IUserPayload>({ resolver: yupResolver(schema) });
 
   const openNotificationWithIcon = (type: string, message: string) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -42,23 +45,25 @@ const Login: NextPageWithLayout = () => {
     });
   };
 
-  const onSubmit = (data: ILoginPayload) => {
+  const onSubmit = (data: IUserPayload) => {
     console.log(data);
-    authApi
-      .login(data)
+    userApi
+      .register(data)
       .then((res) => {
         console.log(res);
-        router.push('/');
+        openNotificationWithIcon('success', 'Create user successful');
       })
       .catch((req) => {
-        const message = req.response.data.message;
-        openNotificationWithIcon('error', message);
+        const message = req.response.data;
+        console.log(message);
       });
   };
   const handleReset = () => {
     reset({
-      username: '',
+      email: '',
+      name: '',
       password: '',
+      passwordConfirmation: '',
     });
   };
 
@@ -74,25 +79,40 @@ const Login: NextPageWithLayout = () => {
             className={'LoginContainer__form'}
           >
             <Title level={2} type={'secondary'}>
-              Login
+              Register
             </Title>
             <Form.Item>
               <Space direction="vertical">
                 <CustomInput
-                  icon={<UserOutlined />}
-                  name={'username'}
-                  placeholder={'Username or email'}
+                  icon={<MailOutlined />}
+                  name={'email'}
+                  placeholder={'Email'}
                   control={control}
                 />
-                <Text type="danger">{errors.username?.message}</Text>
+                <Text type="danger">{errors.email?.message}</Text>
+                <CustomInput
+                  icon={<UserOutlined />}
+                  name={'name'}
+                  placeholder={'Full name'}
+                  control={control}
+                />
+                <Text type="danger">{errors.name?.message}</Text>
                 <CustomInput
                   icon={<KeyOutlined />}
                   name={'password'}
-                  placeholder={'password'}
+                  placeholder={'Password'}
                   control={control}
                   type={'password'}
                 />
                 <Text type="danger">{errors.password?.message}</Text>
+                <CustomInput
+                  icon={<KeyOutlined />}
+                  name={'passwordConfirmation'}
+                  placeholder={'Password'}
+                  control={control}
+                  type={'password'}
+                />
+                <Text type="danger">{errors.passwordConfirmation?.message}</Text>
               </Space>
             </Form.Item>
             <Form.Item {...tailLayout}>
@@ -111,4 +131,4 @@ const Login: NextPageWithLayout = () => {
   );
 };
 
-export default Login;
+export default Register;
